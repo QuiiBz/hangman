@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from 'react';
+import StatCard from '../components/StatCard';
 import { ScoreData } from '../lib/types';
 
 const Statistics: FC = () => {
@@ -17,13 +18,11 @@ const Statistics: FC = () => {
   }, []);
 
   return (
-    <>
+    <div className="flex flex-col jsustify-center w-max md:w-96 gap-y-4 mx-auto">
       {stats.map(stat => (
-        <p key={stat.position}>
-          #{stat.position}: {stat.username}, {stat.score}
-        </p>
+        <StatCard key={stat.position} stat={stat} />
       ))}
-    </>
+    </div>
   );
 };
 
