@@ -17,10 +17,10 @@ const Game: FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center gap-y-16">
-      <h1 className="text-2xl mb-8 text-center">You have {trys} guesses left</h1>
+      <h1 className="text-2xl mb-8 text-center dark:text-white">You have {trys} guesses left</h1>
       {[GameStatus.WON, GameStatus.LOST].includes(status) ? (
         <div className="flex flex-col items-center justify-center gap-y-4">
-          <p>The word was: {wordData!.word}</p>
+          <p className="text-gray-800 dark:text-gray-50">The word was: {wordData!.word}</p>
           <button
             type="button"
             onClick={startGame}
@@ -37,8 +37,13 @@ const Game: FC = () => {
               const isLetterFound = letters.includes(wordLetter);
 
               return (
-                // eslint-disable-next-line react/no-array-index-key
-                <span key={index} className={`text-2xl ${isLetterFound ? 'text-gray-800' : 'text-gray-400'}`}>
+                <span
+                  // eslint-disable-next-line react/no-array-index-key
+                  key={index}
+                  className={`text-2xl ${
+                    isLetterFound ? 'text-gray-800 dark:text-gray-50' : 'text-gray-400 dark:text-gray-600'
+                  }`}
+                >
                   {isLetterFound ? wordLetter : '_'}{' '}
                 </span>
               );
@@ -49,7 +54,7 @@ const Game: FC = () => {
             placeholder="a"
             value=""
             onChange={guessLetter}
-            className="text-2xl p-4 border-2 border-gray-200 rounded-lg w-12"
+            className="text-2xl p-4 border-2 border-gray-200 rounded-lg w-12 dark:bg-gray-900 dark:border-gray-700"
           />
         </>
       ) : null}

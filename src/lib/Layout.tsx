@@ -5,11 +5,13 @@ import Header from '../components/Header';
 
 const Layout: FC = () => {
   return (
-    <div className="max-w-5xl mx-auto">
-      <Toaster />
-      <Header />
-      <div className="mt-16">
-        <Outlet />
+    <div className="bg-white dark:bg-black">
+      <div className="max-w-5xl min-h-screen mx-auto">
+        <Toaster />
+        <Header />
+        <div className="mt-16">
+          <Outlet />
+        </div>
       </div>
     </div>
   );

@@ -25,7 +25,11 @@ const Header: FC = () => {
   return (
     <header className="flex justify-center gap-x-8 py-4">
       {PAGES.map(({ name, path }) => (
-        <Link key={name} to={path} className="text-gray-600 hover:text-gray-900">
+        <Link
+          key={name}
+          to={path}
+          className="text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-gray-50"
+        >
           {name}
         </Link>
       ))}
