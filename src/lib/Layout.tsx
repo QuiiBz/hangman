@@ -7,7 +7,7 @@ const Layout: FC = () => {
   return (
     <div className="bg-white dark:bg-black">
       <div className="max-w-5xl min-h-screen mx-auto">
-        <Toaster />
+        <Toaster position="top-right" toastOptions={{ duration: 2000 }} />
         <Header />
         <div className="mt-16">
           <Outlet />

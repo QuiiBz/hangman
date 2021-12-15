@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+import useTheme from '../lib/hooks/useTheme';
 
 type Page = {
   name: string;
@@ -22,6 +23,8 @@ const PAGES: Page[] = [
 ];
 
 const Header: FC = () => {
+  const { darkMode, setDarkMode } = useTheme();
+
   return (
     <header className="flex justify-center gap-x-8 py-4">
       {PAGES.map(({ name, path }) => (
@@ -33,6 +36,9 @@ const Header: FC = () => {
           {name}
         </Link>
       ))}
+      <button type="button" onClick={() => setDarkMode(!darkMode)}>
+        {darkMode ? '🌞' : '🌚'}
+      </button>
     </header>
   );
 };
