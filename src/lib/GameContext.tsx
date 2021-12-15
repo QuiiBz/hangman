@@ -64,7 +64,7 @@ const GameProvider: FC = ({ children }) => {
   }, [username]);
 
   useEffect(() => {
-    if (wordData && Array.from(wordData!.word).every(wordLetter => letters.includes(wordLetter))) {
+    if (wordData && Array.from(wordData!.word).every(wordLetter => letters.includes(wordLetter.toLowerCase()))) {
       endGame(GameStatus.WON);
     }
   }, [letters]);
@@ -72,7 +72,7 @@ const GameProvider: FC = ({ children }) => {
   const tryLetter = (letter: string): void => {
     if (letters.includes(letter)) {
       toast.error(`You already tried the letter: ${letter}`);
-    } else if (wordData?.word.includes(letter)) {
+    } else if (wordData?.word.toLowerCase().includes(letter.toLowerCase())) {
       setLetters([...letters, letter]);
     } else {
       setTrys(trys - 1);

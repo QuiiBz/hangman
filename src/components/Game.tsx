@@ -34,7 +34,7 @@ const Game: FC = () => {
         <>
           <div className="flex gap-2">
             {Array.from(wordData?.word || []).map((wordLetter, index) => {
-              const isLetterFound = letters.includes(wordLetter);
+              const isLetterFound = letters.includes(wordLetter.toLowerCase());
 
               return (
                 <span
